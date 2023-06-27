@@ -1,0 +1,16 @@
+{% extends 'myauth/base.html' %}
+
+{% block title %}
+    Пользователи сайта
+{% endblock %}
+
+{% block body %}
+    <h1>Список пользователей: </h1>
+    {% for user in users %}
+        <ul>
+            <li><a href="{% url 'myauth:user_detail' user.id %}">{{ user.username }}</a></li>
+        </ul>
+    {% empty %}
+        <p>Зарегистрированных пользователей нет</p>
+    {% endfor %}
+{% endblock %}
